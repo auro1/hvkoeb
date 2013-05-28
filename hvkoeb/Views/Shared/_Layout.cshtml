@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Bundles.Reference("Scripts");
+    Bundles.Reference("Styles");
+    Bundles.Reference("Content/Lib/Unsemantic/assets/stylesheets/unsemantic-grid-responsive.css");
+    Bundles.Reference("Content/Lib/Unsemantic/assets/javascripts");
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,33 +19,51 @@
     <!--[if (lt IE 9) & (!IEMobile)]>
         <link href="@Url.Content("~/Content/Lib/Unsematic/assets/stylesheets/ie.css")" rel="stylesheet" type="text/css" />
     <![endif]-->
-
+    
     @Bundles.RenderStylesheets()
 </head>
 <body>  
-    <div class="grid-container">
-        <div class="page">
-            <header>
-                <div id="title">
-                    <h1>Hjemmeværnskompagni Ørbæk</h1>
-                </div>
-                <div id="logindisplay">
-                    @Html.Partial("_LogOnPartial")
-                </div>
-                <nav>
-                    <ul id="menu">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                    </ul>
-                </nav>
-            </header>
-            <section id="main">
-                @RenderBody()
-            </section>
-            <footer>
-            </footer>
+    <header class="grid-container">
+        <div class="grid-30">
+            <img src="@Url.Content("~/Content/Images/logo.png")" width="120" height="120" />
         </div>
+
+        <nav class="grid-50">
+            <ul class="menu">
+                <li>@Html.ActionLink("Nyheder", "Index", "News")</li>
+                <li>@Html.ActionLink("Aktiviter", "Index", "Activities")</li>
+                <li>@Html.ActionLink("Køresedler", "Index", "DrivingPaper")</li>
+            </ul>
+        </nav>
+
+        <nav class="grid-20">
+            <ul class="menu">
+                <li>@Html.ActionLink("Om", "About", "StaticPage")</li>
+                <li>@Html.ActionLink("Kontakt", "Index", "Contact")</li>
+                <li>@Html.Partial("_LogOnPartial")</li>
+            </ul>
+        </nav>
+    </header>
+
+    <footer class="grid-container">
+        <hr /><br />
     </div>
+
+    <section class="body grid-container">
+        <div class="grid-100">
+            @RenderBody()
+        </div>
+    </section>    
+
+    <footer class="grid-container">
+        <hr /><br />
+    </div>
+
+    <footer class="grid-container">
+        <div class="grid-100">
+            &copy; @DateTime.Now.Year Hjemmeværnskompagni Ørbæk, Hulvejen 1, 5853 Ørbæk
+        </div>
+    </footer>
 
     @Bundles.RenderScripts()
 </body>

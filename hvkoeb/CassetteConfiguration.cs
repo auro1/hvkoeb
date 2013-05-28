@@ -20,6 +20,7 @@ namespace hvkoeb
 
             // CSS
             bundles.Add<StylesheetBundle>("Content/Lib/Unsemantic/assets/stylesheets/unsemantic-grid-responsive.css");
+            bundles.Add<StylesheetBundle>("Styles");
 
             // Scripts
             bundles.Add<ScriptBundle>("Content/Lib/Unsemantic/assets/javascripts");
