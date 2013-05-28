@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>@ViewBag.Title</title>
+    <!--[if lt IE 9]>
+      <script src="@Url.Content("~/Content/Lib/Unsematic/assets/javascripts/html5.js")"></script>
+    <![endif]-->
+    <!--[if (gt IE 8) | (IEMobile)]><!-->
+    <!--<![endif]-->
+    <!--[if (lt IE 9) & (!IEMobile)]>
+        <link href="@Url.Content("~/Content/Lib/Unsematic/assets/stylesheets/ie.css")" rel="stylesheet" type="text/css" />
+    <![endif]-->
+
+    @Bundles.RenderStylesheets()
+</head>
+<body>  
+    <div class="grid-container">
+        <div class="page">
+            <header>
+                <div id="title">
+                    <h1>Hjemmeværnskompagni Ørbæk</h1>
+                </div>
+                <div id="logindisplay">
+                    @Html.Partial("_LogOnPartial")
+                </div>
+                <nav>
+                    <ul id="menu">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                    </ul>
+                </nav>
+            </header>
+            <section id="main">
+                @RenderBody()
+            </section>
+            <footer>
+            </footer>
+        </div>
+    </div>
+
+    @Bundles.RenderScripts()
+</body>
+</html>
